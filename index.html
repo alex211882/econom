@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Система обучения</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="login-card">
+            <div class="header">
+                <h1>🎓 Система обучения</h1>
+                <p>Войдите в свой аккаунт</p>
+            </div>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="login">Логин</label>
+                    <input 
+                        type="text" 
+                        id="login" 
+                        name="login" 
+                        placeholder="Введите логин" 
+                        required
+                        autocomplete="username"
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Пароль</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        placeholder="Введите пароль" 
+                        required
+                        autocomplete="current-password"
+                    >
+                </div>
+                
+                <button type="submit" class="btn-login" id="loginBtn">
+                    Войти
+                </button>
+            </form>
+            
+            <div id="errorMessage" class="error-message" style="display: none;"></div>
+        </div>
+    </div>
+
+    <script>
+        // Инициализация Telegram WebApp
+        const tg = window.Telegram.WebApp;
+        tg.ready();
+        tg.expand();
+
+        // Обработка отправки формы
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const login = document.getElementById('login').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('errorMessage');
+            const loginBtn = document.getElementById('loginBtn');
+            
+            // Валидация
+            if (!login || !password) {
+                errorMessage.textContent = 'Пожалуйста, заполните все поля';
+                errorMessage.style.display = 'block';
+                return;
+            }
+            
+            // Отключаем кнопку во время обработки
+            loginBtn.disabled = true;
+            loginBtn.textContent = 'Вход...';
+            errorMessage.style.display = 'none';
+            
+            // Отправляем данные в бот
+            const data = {
+                action: "login",
+                login: login,
+                password: password
+            };
+            
+            tg.sendData(JSON.stringify(data));
+            
+            // Через небольшую задержку возвращаем кнопку в исходное состояние
+            // (если вход не удался, бот сообщит об ошибке)
+            setTimeout(() => {
+                loginBtn.disabled = false;
+                loginBtn.textContent = 'Войти';
+            }, 2000);
+        });
+
+        // Обработка ошибок
+        tg.onEvent('viewportChanged', function() {
+            tg.expand();
+        });
+    </script>
+</body>
+</html>
