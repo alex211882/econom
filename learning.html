@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обучение</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="learning-page">
+    <div class="learning-container">
+        <h1 id="learningTitle">Участок 1</h1>
+        <div class="progress-indicators">
+            <div class="progress-circle" id="circle1">1</div>
+            <div class="progress-circle" id="circle2">2</div>
+            <div class="progress-circle" id="circle3">3</div>
+            <div class="progress-circle" id="circle4">4</div>
+            <div class="progress-circle" id="circle5">5</div>
+        </div>
+        <div class="work-area" id="workArea">
+            <p>Добро пожаловать правила прохождения</p>
+        </div>
+        <button class="btn btn-primary" id="continueBtn">Продолжить</button>
+    </div>
+    <div class="modal" id="resultModal" style="display: none;">
+        <div class="modal-content">
+            <h2 id="resultTitle">Результаты теста</h2>
+            <p id="resultText"></p>
+            <div id="certificateButtons" style="display: none;">
+                <button class="btn btn-primary" id="yesBtn">Да</button>
+                <button class="btn btn-secondary" id="noBtn">Нет</button>
+            </div>
+            <button class="btn btn-primary" id="closeModalBtn" style="display: none;">Закрыть</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+{
+  "users": [
+    {
+      "login": "user1",
+      "password": "pass1",
+      "email": "user1@example.com",
+      "sections": {
+        "участок 1": {
+          "completed": false,
+          "attempts": 0
+        },
+        "участок 2": {
+          "completed": false,
+          "attempts": 0
+        },
+        "участок 3": {
+          "completed": false,
+          "attempts": 0
+        }
+      }
+    },
+    {
+      "login": "admin",
+      "password": "admin",
+      "email": "admin@example.com",
+      "sections": {
+        "участок 1": {
+          "completed": true,
+          "attempts": 1
+        },
+        "участок 2": {
+          "completed": false,
+          "attempts": 0
+        },
+        "участок 3": {
+          "completed": true,
+          "attempts": 2
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "участок 1": {
+    "questions": [
+      {
+        "correct": 1
+      },
+      {
+        "correct": 2
+      }
+    ]
+  },
+  "участок 2": {
+    "questions": [
+      {
+        "correct": 3
+      },
+      {
+        "correct": 1
+      }
+    ]
+  },
+  "участок 3": {
+    "questions": [
+      {
+        "correct": 2
+      },
+      {
+        "correct": 4
+      }
+    ]
+  }
+}
